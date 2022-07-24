@@ -12,15 +12,8 @@ enum Tab: String, CaseIterable {
     case folder
 }
 
-final class CustomTabRouter: ObservableObject {
-    @Published var selectedTab: Tab = .house
-    
-    
-}
-
 struct CustomTabBar : View {
     @Binding var selectedTab: Tab
-    @StateObject var router = CustomTabRouter()
     private var fillImage: String {
         selectedTab.rawValue
     }
