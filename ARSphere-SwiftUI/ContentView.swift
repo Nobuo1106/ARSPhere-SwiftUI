@@ -9,8 +9,29 @@ import SwiftUI
 import RealityKit
 
 struct ContentView : View {
+    @State private var selectedTab: Tab = .house
+    init () {
+        UITabBar.appearance().isHidden = true
+    }
     var body: some View {
-        return ARViewContainer().edgesIgnoringSafeArea(.all)
+        ZStack {
+            VStack {
+                TabView(selection: $selectedTab) {
+                    ForEach(Tab.allCases, id: \.rawValue) { tab in
+                        HStack {
+                            Image(systemName: tab.rawValue)
+                        }
+                        .tag(tab)
+                        
+                    }
+                }
+            }
+            VStack {
+                Spacer()
+                CustomTabBar(selectedTab: $selectedTab)
+            }
+        }
+//        return ARViewContainer().edgesIgnoringSafeArea(.all)
     }
 }
 
