@@ -9,7 +9,9 @@ import SwiftUI
 import RealityKit
 
 struct ContentView : View {
+    @State var isPresenting = false
     @State private var selectedTab: Tab = .house
+    @State private var oldSelectedTab: Tab = .house
     init () {
         UITabBar.appearance().isHidden = true
     }
@@ -22,13 +24,25 @@ struct ContentView : View {
                             switch tab {
                             case .house:
                                 ARView()
+                                    .tag(1)
                             case .folder:
-                                FilesView()
+                                ARView()
                             }
                         }
                         .tag(tab)
                         
                     }
+                } .onChange(of: selectedTab) {
+                    if selectedTab == .folder {
+                        self.isPresenting = true
+                    } else {
+                        self.oldSelectedTab = $0
+                    }
+                }
+                .sheet(isPresented: $isPresenting, onDismiss: {
+                          self.selectedTab = self.oldSelectedTab
+                      }) {
+                     ImagePickerView()
                 }
             }
             VStack {
@@ -36,7 +50,7 @@ struct ContentView : View {
                 CustomTabBar(selectedTab: $selectedTab)
             }
         }
-//        return ARViewContainer().edgesIgnoringSafeArea(.all)
+        //        return ARViewContainer().edgesIgnoringSafeArea(.all)
     }
 }
 
