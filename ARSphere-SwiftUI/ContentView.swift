@@ -12,6 +12,7 @@ struct ContentView : View {
     @State var isPresenting = false
     @State private var selectedTab: Tab = .house
     @State private var oldSelectedTab: Tab = .house
+    @State private var ARimage = UIImage(named: "default-AR-image")!
     init () {
         UITabBar.appearance().isHidden = true
     }
@@ -23,10 +24,10 @@ struct ContentView : View {
                         HStack {
                             switch tab {
                             case .house:
-                                ARView()
+                                ARViewContainer()
                                     .tag(1)
                             case .folder:
-                                ARView()
+                                ARViewContainer()
                             }
                         }
                         .tag(tab)
@@ -42,7 +43,7 @@ struct ContentView : View {
                 .sheet(isPresented: $isPresenting, onDismiss: {
                           self.selectedTab = self.oldSelectedTab
                       }) {
-                     ImagePickerView()
+                     ImagePickerView(ARimage: $ARimage)
                 }
             }
             VStack {

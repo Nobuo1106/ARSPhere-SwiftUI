@@ -8,15 +8,13 @@
 import SwiftUI
 
 struct ImagePickerView: UIViewControllerRepresentable {
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ImagePickerView>) -> UIViewController {
+    @Binding var ARimage: UIImage
+    
+    func makeUIViewController(context: Context) -> UIImagePickerController {
         let controller = UIImagePickerController()
-        controller.delegate = context.coordinator
         return controller
     }
     
-    func makeCoordinator() -> ImagePickerView.Coordinator {
-        return Coordinator()
-    }
     
     class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationBarDelegate {
         
@@ -27,13 +25,17 @@ struct ImagePickerView: UIViewControllerRepresentable {
         }
     }
     
+    func makeCoordinator() -> ImagePickerView.Coordinator {
+        return Coordinator()
+    }
+    
     func updateUIViewController(_ uiViewController:
                                 ImagePickerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ImagePickerView>) {
     }
 }
 
-struct FilesView_Previews: PreviewProvider {
-    static var previews: some View {
-        ImagePickerView()
-    }
-}
+//struct ImagePickerView_Preview: PreviewProvider {
+//    static var previews: some View {
+//        ImagePickerView(ARimage: UIImage(named: "default-AR-image")?)
+//    }
+//}
