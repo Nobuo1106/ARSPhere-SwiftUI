@@ -17,6 +17,7 @@
 		CE68589B288C2163006BE184 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE68589A288C2163006BE184 /* Assets.xcassets */; };
 		CE68589E288C2163006BE184 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE68589D288C2163006BE184 /* Preview Assets.xcassets */; };
 		CE6858A7288C21E0006BE184 /* ARModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6858A6288C21E0006BE184 /* ARModel.swift */; };
+		CEDDD78328B9C6A70030EA52 /* love.usdz in Resources */ = {isa = PBXBuildFile; fileRef = CEDDD78228B9C6A70030EA52 /* love.usdz */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		CE68589A288C2163006BE184 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE68589D288C2163006BE184 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE6858A6288C21E0006BE184 /* ARModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModel.swift; sourceTree = "<group>"; };
+		CEDDD78228B9C6A70030EA52 /* love.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = love.usdz; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				CE2F096C288D690700E16751 /* ARView.swift */,
 				CE685898288C2161006BE184 /* Experience.rcproject */,
 				CE68589A288C2163006BE184 /* Assets.xcassets */,
+				CEDDD78228B9C6A70030EA52 /* love.usdz */,
 				CE68589C288C2163006BE184 /* Preview Content */,
 			);
 			path = "ARSphere-SwiftUI";
@@ -151,6 +154,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEDDD78328B9C6A70030EA52 /* love.usdz in Resources */,
 				CE68589E288C2163006BE184 /* Preview Assets.xcassets in Resources */,
 				CE68589B288C2163006BE184 /* Assets.xcassets in Resources */,
 			);
@@ -302,7 +306,7 @@
 				DEVELOPMENT_TEAM = 8BG588F6G9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
@@ -333,7 +337,7 @@
 				DEVELOPMENT_TEAM = 8BG588F6G9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
