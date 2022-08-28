@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealityKit
+import Combine
 
 struct ContentView : View {
     @State var isPresenting = false
@@ -25,17 +26,15 @@ struct ContentView : View {
                             switch tab {
                             case .house:
                                 ARViewContainer()
-                                    .tag(1)
                             case .folder:
                                 ARViewContainer()
                             }
                         }
-                        .tag(tab)
-                        
                     }
-                } .onChange(of: selectedTab) {
+                } .onReceive(Just(selectedTab)) {
                     if selectedTab == .folder {
                         self.isPresenting = true
+                        self.oldSelectedTab = .folder
                     } else {
                         self.oldSelectedTab = $0
                     }

@@ -22,6 +22,7 @@ struct ImagePickerView: UIViewControllerRepresentable {
             if let selectedImage = info[.originalImage] as? UIImage {
                 print(selectedImage)
             }
+            picker.dismiss(animated: true)
         }
     }
     

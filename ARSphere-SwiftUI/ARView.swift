@@ -15,12 +15,13 @@ struct ARViewContainer: UIViewRepresentable {
     typealias UIViewType = ARView
     
     func makeUIView(context: Context) -> ARView {
+        print("makeUIView")
         ARViewController.shared.startARSession()
         return ARViewController.shared.arview
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        
+        print("updateUIView")
     }
 }
 
