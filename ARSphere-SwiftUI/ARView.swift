@@ -63,11 +63,17 @@ final class ARViewController: ObservableObject {
 //            let material = SimpleMaterial(color: .pink, isMetallic: true)
             
             let path = "love"
+//            let path = "blender-heartpink"
             let model = try? ModelEntity.loadModel(named: path)
             model?.scale = [0.05, 0.05, 0.05]
-            for index in 0 ..< (model?.model!.mesh.expectedMaterialCount)! { // USDZのマテリアルの数だけ貼り付ける
-                let material = SimpleMaterial(color:.systemPink , roughness: 0, isMetallic: false)
-                model?.model!.materials[index] = material
+//            for index in 0 ..< (model?.model!.mesh.expectedMaterialCount)! { // USDZのマテリアルの数だけ貼り付ける
+//                let material = SimpleMaterial(color:.systemPink , roughness: 0, isMetallic: false)
+//                model?.model!.materials[index] = material
+//            }
+            if let texture = try? TextureResource.load(named: "default-AR-image") {
+                var imageMaterial = UnlitMaterial()
+                    imageMaterial.baseColor = MaterialColorParameter.texture(texture)
+                    model?.model!.materials = [imageMaterial]
             }
             placeObject(object: model!, at: worldPosition)
         }
