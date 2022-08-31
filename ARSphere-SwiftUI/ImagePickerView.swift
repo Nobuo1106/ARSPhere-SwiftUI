@@ -7,32 +7,38 @@
 
 import SwiftUI
 
-struct ImagePickerView: UIViewControllerRepresentable {
+struct ImagePicker: UIViewControllerRepresentable {
     @Binding var ARimage: UIImage
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
-        let controller = UIImagePickerController()
-        return controller
+        let picker = UIImagePickerController()
+        picker.delegate = context.coordinator
+        return picker
     }
     
+    func updateUIViewController(_ uiViewController:
+                                ImagePicker.UIViewControllerType, context: UIViewControllerRepresentableContext<ImagePicker>) {
+    }
+
     
-    class Coordinator: NSObject, UIImagePickerControllerDelegate, UINavigationBarDelegate {
+    func makeCoordinator() -> ImagePicker.Coordinator {
+        return Coordinator(imagePicker: self)
+    }
+    
+    class Coordinator: NSObject, UINavigationControllerDelegate,UIImagePickerControllerDelegate  {
+        let imagePicker: ImagePicker
+        init(imagePicker: ImagePicker) {
+            self.imagePicker = imagePicker
+        }
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let selectedImage = info[.originalImage] as? UIImage {
-                print(selectedImage)
+                
             }
             picker.dismiss(animated: true)
         }
     }
     
-    func makeCoordinator() -> ImagePickerView.Coordinator {
-        return Coordinator()
-    }
-    
-    func updateUIViewController(_ uiViewController:
-                                ImagePickerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ImagePickerView>) {
-    }
 }
 
 //struct ImagePickerView_Preview: PreviewProvider {

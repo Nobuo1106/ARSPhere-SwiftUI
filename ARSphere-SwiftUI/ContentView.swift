@@ -42,7 +42,7 @@ struct ContentView : View {
                 .sheet(isPresented: $isPresenting, onDismiss: {
                           self.selectedTab = self.oldSelectedTab
                       }) {
-                     ImagePickerView(ARimage: $ARimage)
+                     ImagePicker(ARimage: $ARimage)
                 }
             }
             VStack {
