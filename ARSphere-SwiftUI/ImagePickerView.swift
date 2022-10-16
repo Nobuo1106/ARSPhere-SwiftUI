@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ImagePicker: UIViewControllerRepresentable {
-    @Binding var ARimage: UIImage
+    @Binding var selectedImage: UIImage
+    @Environment(\.presentationMode) private var presentationMode
     
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()
@@ -33,13 +34,29 @@ struct ImagePicker: UIViewControllerRepresentable {
         
         func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
             if let selectedImage = info[.originalImage] as? UIImage {
-                
+                guard let imageData = selectedImage.jpegData(compressionQuality: 1.0) else {
+                    return
+                }
+                do {
+                    try imageData.write(to: getFileURL(fileName: "IMG1.jpg"))
+                    print("Image saved.")
+                } catch {
+                    print("Failed to save the image:", error)
+                }
             }
-            picker.dismiss(animated: true)
+            imagePicker.presentationMode.wrappedValue.dismiss()
+        }
+        
+        func getFileURL(fileName: String) -> URL {
+            let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+            return docDir.appendingPathComponent(fileName)
         }
     }
-    
 }
+
+//class imagePickerViewModel: ObservableObject {
+//    @Published var selectedImage: UIImage = UIImage(named: "default-AR-image")!
+//}
 
 //struct ImagePickerView_Preview: PreviewProvider {
 //    static var previews: some View {

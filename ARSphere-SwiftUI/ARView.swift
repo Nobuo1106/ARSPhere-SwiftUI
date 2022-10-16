@@ -53,24 +53,17 @@ final class ARViewController: ObservableObject {
     
     @objc
     private func handleTap(rezognizer: UITapGestureRecognizer) {
-//        let name = "love_heart.usdz"
+        let photo = Photo()
         let tapLocation = rezognizer.location(in: arview)
         let results = arview.raycast(from: tapLocation, allowing: .estimatedPlane, alignment: .horizontal)
         if let firstResult = results.first {
             let worldPosition = simd_make_float3(firstResult.worldTransform.columns.3)
-            
-//            let mesh = MeshResource.generateSphere(radius: 0.03)
-//            let material = SimpleMaterial(color: .pink, isMetallic: true)
-            
             let path = "love"
 //            let path = "blender-heartpink"
             let model = try? ModelEntity.loadModel(named: path)
             model?.scale = [0.05, 0.05, 0.05]
-//            for index in 0 ..< (model?.model!.mesh.expectedMaterialCount)! { // USDZのマテリアルの数だけ貼り付ける
-//                let material = SimpleMaterial(color:.systemPink , roughness: 0, isMetallic: false)
-//                model?.model!.materials[index] = material
-//            }
-            if let texture = try? TextureResource.load(named: "default-AR-image") {
+            let fileName = photo.fetchFileName()
+            if let texture = try? TextureResource.load(named: fileName) {
                 var imageMaterial = UnlitMaterial()
                     imageMaterial.baseColor = MaterialColorParameter.texture(texture)
                     model?.model!.materials = [imageMaterial]

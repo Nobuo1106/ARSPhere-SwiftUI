@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18F6449A28CDB02600D1DAAC /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6449928CDB02600D1DAAC /* Photo.swift */; };
 		CE2F0967288CEF7200E16751 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F0966288CEF7200E16751 /* CustomTabBar.swift */; };
 		CE2F096B288D530E00E16751 /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F096A288D530E00E16751 /* ImagePickerView.swift */; };
 		CE2F096D288D690700E16751 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F096C288D690700E16751 /* ARView.swift */; };
@@ -22,8 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18F6449928CDB02600D1DAAC /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		CE2F0966288CEF7200E16751 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		CE2F096A288D530E00E16751 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		CE2F096A288D530E00E16751 /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		CE2F096C288D690700E16751 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
 		CE2F096E288D6F4700E16751 /* CustomTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTab.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		CE685891288C2160006BE184 /* ARSphere-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ARSphere-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +97,7 @@
 			children = (
 				CE6858A6288C21E0006BE184 /* ARModel.swift */,
 				CE2F096E288D6F4700E16751 /* CustomTab.swift */,
+				18F6449928CDB02600D1DAAC /* Photo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				CE6858A7288C21E0006BE184 /* ARModel.swift in Sources */,
 				CE2F0967288CEF7200E16751 /* CustomTabBar.swift in Sources */,
 				CE2F096D288D690700E16751 /* ARView.swift in Sources */,
+				18F6449A28CDB02600D1DAAC /* Photo.swift in Sources */,
 				CE685897288C2161006BE184 /* ContentView.swift in Sources */,
 				CE2F096F288D6F4700E16751 /* CustomTab.swift in Sources */,
 				CE685895288C2161006BE184 /* AppDelegate.swift in Sources */,
